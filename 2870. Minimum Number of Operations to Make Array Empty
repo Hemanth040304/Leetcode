@@ -1,0 +1,26 @@
+//https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty/description/?envType=daily-question&envId=2024-01-04
+
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        map<int,int>mp;
+        for(auto it:nums){
+            mp[it]++;
+        }
+        int ans = 0,c=0;
+        for(auto &it:mp){
+            if(it.second==1){
+                c++;
+                break;
+            }
+            int t2=0,t3=0;
+            if(it.second%2==0)t2 = it.second/2;
+            else t2 = it.second/2+1;
+            if(it.second%3==0)t3 = it.second/3;
+            else t3 = it.second/3+1;
+            ans+=min(t2,t3);
+        }
+        if(c>0)return -1;
+        else return ans;
+    }
+};
