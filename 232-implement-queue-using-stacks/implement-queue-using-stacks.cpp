@@ -1,12 +1,12 @@
 class MyQueue {
 public:
     stack<int>s;
-    stack<int>s1;
     MyQueue() {
         
     }
     
     void push(int x) {
+        stack<int>s1;
         while(!s.empty()){
             s1.push(s.top());
             s.pop();
