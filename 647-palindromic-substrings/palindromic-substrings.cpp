@@ -14,11 +14,8 @@ public:
     int countSubstrings(string s) {
         int ans = 0;
         for(int i = 0 ; i < s.size() ; i++){
-            int l = i, r = i;
-            ans += count_pal(l,r,s);
-            l = i;
-            r = i+1;
-            ans += count_pal(l,r,s);
+            ans += count_pal(i,i,s);
+            ans += count_pal(i,i+1,s);
         }
         return ans;
     }
