@@ -2,11 +2,9 @@ class Solution {
 public:
 
     bool Search(int i, int j, int n, int m, vector<vector<char>>& board, string& word, int ind, int len, vector<vector<bool>>& visited) {
-    if (ind == len)
-        return true;
+    if (ind == len) return true;
     
-    if (i < 0 || i >= n || j < 0 || j >= m || visited[i][j] || board[i][j] != word[ind])
-        return false;
+    if (i < 0 || i >= n || j < 0 || j >= m || visited[i][j] || board[i][j] != word[ind]) return false;
     
     visited[i][j] = true;
     
