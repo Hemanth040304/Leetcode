@@ -28,7 +28,7 @@ public:
         vector<vector<bool>> visited(n,vector<bool>(m,0));
         for (int i = 0; i < n; i++){
             for (int j = 0; j < m; j++){
-                if(Search(i,j,n,m,board,word,0,word.size(),visited))return true;
+                if(word[0] == board[i][j] and Search(i,j,n,m,board,word,0,word.size(),visited))return true;
             }
         }
         return false;
