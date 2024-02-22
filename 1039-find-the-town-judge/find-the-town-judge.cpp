@@ -9,7 +9,7 @@ public:
             if(mp[it[1]] >= n-1)ans = it[1];
         }
         for ( auto it : trust){
-            if(it[0] == ans)ans = -1;
+            if(it[0] == ans)return -1;
         }
         return ans;
     }
