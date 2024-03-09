@@ -1,6 +1,9 @@
 class Solution {
 public:
     int getCommon(vector<int>& nums1, vector<int>& nums2) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
         sort(nums1.begin(), nums1.end());
         sort(nums2.begin(), nums2.end());
         int i = 0, j = 0;
