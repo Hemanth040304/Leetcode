@@ -6,8 +6,9 @@ public:
         cout.tie(NULL);
 
         int sumn = (n * (n + 1)) / 2;
+        int sumi = 0;
         for(int i = 1; i <= n ; i++){
-            int sumi = (i * (i + 1)) / 2;
+            sumi += i;
             if(sumi == sumn - sumi + i) return i;
         }
         return -1;
