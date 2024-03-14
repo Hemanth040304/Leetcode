@@ -5,14 +5,17 @@ public:
         cin.tie(NULL);
         cout.tie(NULL);
 
-        unordered_map<int, int> preSumCnt;
+        vector<int> preSumCnt(30001, 0);
         int ans = 0, n = nums.size();
         int sum = 0;
+        preSumCnt[0] = 1;
 
         for (int i = 0; i < n; i++) {
             sum += nums[i];
-            if (sum == goal) ans++;
-            ans += preSumCnt[sum - goal];
+            int target = sum - goal;
+            if (target >= 0) {
+                ans += preSumCnt[target];
+            }
             preSumCnt[sum]++;
         }
 
