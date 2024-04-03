@@ -21,6 +21,10 @@ public:
 
 
     bool exist(vector<vector<char>>& board, string word) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
+        cout.tie(NULL);
+
         int n = board.size();
         int m = board[0].size();
         vector<vector<bool>> visited(n,vector<bool>(m,0));
