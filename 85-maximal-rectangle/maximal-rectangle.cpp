@@ -17,6 +17,10 @@ public:
     }
 
     int maximalRectangle(vector<vector<char>>& matrix) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
+        cout.tie(NULL);
+        
         int ans = 0;
         int n = matrix.size();
         int m = matrix[0].size();
