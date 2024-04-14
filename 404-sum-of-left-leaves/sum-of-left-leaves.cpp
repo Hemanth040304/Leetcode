@@ -20,6 +20,10 @@ public:
     }
 
     int sumOfLeftLeaves(TreeNode* root) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
+        cout.tie(NULL);
+
         if(root -> left == NULL and root -> right == NULL)return 0;
         int ans = 0;
         LeftSum(root, ans, 0, 0);
