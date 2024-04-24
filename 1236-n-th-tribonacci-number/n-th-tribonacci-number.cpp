@@ -7,8 +7,11 @@ public:
         return dp[n] = fun(n-1,dp)+fun(n-2,dp)+fun(n-3,dp);
     }
     int tribonacci(int n) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
+        cout.tie(NULL);
+        
         vector<int> dp(n+1, -1);
-        //memset(dp, -1, n);
         return fun(n,dp);
     }
 };
