@@ -6,10 +6,10 @@ public:
 
         for (char ch : s) {
             Freq[ch]++;
-            if (Freq[ch] % 2 == 1) count++;
+            if (Freq[ch] % 2) count++;
             else count--;
         }
-        
+
         if (count > 1) return s.size() - count + 1;
         return s.size();
     }
