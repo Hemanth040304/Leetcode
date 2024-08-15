@@ -1,17 +1,13 @@
 class Solution {
 public:
     bool lemonadeChange(vector<int>& bills) {
-        int five = 0, ten = 0, twenty = 0, amount = 0;
+        int five = 0, ten = 0, twenty = 0;
         for (auto it : bills) {
-            if(it == 5) {
-                five++;
-                amount += it;
-            }
+            if(it == 5) five++;
             else if (it == 10) {
                 if (five) {
                     ten++;
                     five--;
-                    amount += 5;
                 }
                 else return false;
             }
@@ -19,12 +15,8 @@ public:
                 if (ten and five) {
                     ten--;
                     five--;
-                    amount += 5;
                 }
-                else if (five > 2) {
-                    five -= 3;
-                    amount == 5;
-                }
+                else if (five > 2) five -= 3;
                 else return false;
             }
         }
