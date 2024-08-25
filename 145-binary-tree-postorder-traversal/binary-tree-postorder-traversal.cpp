@@ -14,10 +14,7 @@ private:
     void postOrder(TreeNode* root, vector <int> &ord) {
         if(!root) return;
 
-        // Traverse the left subtree
         postOrder (root -> left, ord);
-
-        // Traverse the right subtree
         postOrder (root -> right, ord);
         
         ord.emplace_back (root -> val);
