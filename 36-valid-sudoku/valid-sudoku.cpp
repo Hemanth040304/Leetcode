@@ -1,34 +1,20 @@
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
-        ios_base::sync_with_stdio(0);
-        cin.tie(NULL);
-        cout.tie(NULL);
-        
-        int n = board.size();
-        int m = board[0].size();
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if((i % 3 == 1) && (j % 3 == 1)){
-                    unordered_set<char> subgrid;
-                    for (int x = -1; x < 2; x++){
-                        for (int y = -1; y < 2; y++){
-                            char curr = board[i + x][j + y];
-                            if (curr != '.' && subgrid.find(curr) != subgrid.end())
-                                return false;
-                            subgrid.insert(curr);
-                        }
-                    }
+        unordered_map<int, unordered_set<char>> cols;
+        unordered_map<int, unordered_set<char>> rows;
+        unordered_map<int, unordered_set<char>> squares; // key = (r / 3) * 3 + c / 3
+
+        for (int r = 0; r < 9; r++) {
+            for (int c = 0; c < 9; c++) {
+                char cell = board[r][c];
+                if (cell == '.') continue;
+                if (rows[r].count(cell) || cols[c].count(cell) || squares[(r / 3) * 3 + c / 3].count(cell)) {
+                    return false;
                 }
-                char number = board[i][j];
-                if (number != '.') {
-                    for (int x = 0; x < n; x++) {
-                        if (x != i && board[x][j] == number) return false;
-                    }
-                    for (int y = 0; y < m; y++) {
-                        if (y != j && board[i][y] == number) return false;
-                    }
-                }
+                cols[c].insert(cell);
+                rows[r].insert(cell);
+                squares[(r / 3) * 3 + c / 3].insert(cell);
             }
         }
         return true;
