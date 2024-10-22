@@ -12,10 +12,8 @@
 class Solution {
 public:
     int maxLevelSum(TreeNode* root) {
-        int ans = 0;
         long long maxi = INT_MIN;
-        vector<long long> level;
-        int j = 0;
+        int j = 0, ans = 0;
         queue<TreeNode*> q;
         q.push(root);
 
@@ -29,10 +27,9 @@ public:
                 if (node -> right) q.push(node -> right);
                 lel += node -> val;
             }
-            level.emplace_back(lel);
-            
+
             if (maxi < lel){
-               ans = j + 1;
+                ans = j + 1;
                 maxi = lel;
             }
             j++;
