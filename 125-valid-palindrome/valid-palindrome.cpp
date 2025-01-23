@@ -1,12 +1,10 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        transform(s.begin(), s.end(), s.begin(), ::tolower);
-
         string str;
-        
         for (char ch : s) {
-            if (isalnum(ch)) str += ch;
+            if (ch >= 'A' and ch <='Z') str += (ch + 32);
+            else if (ch >= 'a' and ch <= 'z' or ch >= '0' and ch <= '9') str += ch;
         }
 
         int i = 0, j = str.size() - 1;
@@ -15,7 +13,6 @@ public:
             i++;
             j--;
         }
-
         return true;
     }
 };
