@@ -5,8 +5,7 @@ public:
 
         while (i < j) {
             ans = max(ans, ((j - i) * min(height[i], height[j])));
-            if (height[i] < height[j]) i++;
-            else j--;
+            height[i] < height[j] ? i++ : j--;
         }
 
         return ans;
