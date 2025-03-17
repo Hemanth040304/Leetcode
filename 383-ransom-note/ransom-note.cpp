@@ -1,17 +1,12 @@
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
-        int i = 0, j = 0;
-        sort(ransomNote.begin(), ransomNote.end());
-        sort(magazine.begin(), magazine.end());
-        while (i < ransomNote.size() && j < magazine.size()) {
-            if (ransomNote[i] == magazine[j]) {
-                i++;
-                j++;
-            }
-            else j++;
+        vector<int> store(26, 0);
+        for (char ch : magazine) store[ch - 'a']++;
+        for (char ch : ransomNote) {
+            if (store[ch - 'a'] == 0) return false;
+            else store[ch - 'a']--;
         }
-
-        return ransomNote.size() <= i ? true : false;
+        return true;
     }
 };
